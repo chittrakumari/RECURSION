@@ -1,5 +1,3 @@
-
-
 import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
@@ -12,6 +10,26 @@ public class RecursiveArraySearch {
         fillArray();
         Arrays.sort(this.array);
         System.out.println("this.array = " + Arrays.toString(this.array));
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Please enter the size of the array: ");
+        int sizeOfArray = scanner.nextInt();
+        if (sizeOfArray < 0) {
+            System.err.println("Please enter a positive size for the array!");
+        } else {
+            RecursiveArraySearch search = new RecursiveArraySearch(sizeOfArray);
+            System.out.println("Please enter the number to search for: ");
+            int number = scanner.nextInt();
+            int foundIndex = search.searchRecursively(number, 0);
+            if (foundIndex != -1) {
+                System.out.println(number + " found at index " + foundIndex);
+            } else {
+                System.err.println(number + " not found in the array!");
+            }
+        }
+        scanner.close();
     }
 
     private void fillArray() {
@@ -46,25 +64,5 @@ public class RecursiveArraySearch {
         } else {
             return binarySearch(value, middleIndex + 1, endIndex);
         }
-    }
-
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Please enter the size of the array: ");
-        int sizeOfArray = scanner.nextInt();
-        if (sizeOfArray < 0) {
-            System.err.println("Please enter a positive size for the array!");
-        } else {
-            RecursiveArraySearch search = new RecursiveArraySearch(sizeOfArray);
-            System.out.println("Please enter the number to search for: ");
-            int number = scanner.nextInt();
-            int foundIndex = search.searchRecursively(number, 0);
-            if (foundIndex != -1) {
-                System.out.println(number + " found at index " + foundIndex);
-            } else {
-                System.err.println(number + " not found in the array!");
-            }
-        }
-        scanner.close();
     }
 }
