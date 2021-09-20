@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class SumOfDigits {
+public class SumOfNnumbers {
     int SumOfDigits(int n){
         if(n==0){
             return 0;
@@ -8,7 +8,7 @@ public class SumOfDigits {
         return SumOfDigits(n-1)+n;
     }
     public static void main(String[] args) {
-        SumOfDigits obj=new SumOfDigits();
+        SumOfNnumbers obj=new SumOfNnumbers();
         Scanner sc=new Scanner(System.in);
         int ans=obj.SumOfDigits(sc.nextInt());
         System.out.println(ans);
